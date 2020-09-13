@@ -1,33 +1,22 @@
-{
-   "kind": "ReplicationController",
-   "apiVersion": "v1",
-   "metadata": {
-      "name": "green",
-      "labels": {
-         "app": "green"
-      }
-   },
-   "spec": {
-      "replicas": 1,
-      "selector": {
-         "app": "green"
-      },
-      "template": {
-         "metadata": {
-            "labels": {
-               "app": "green"
-            }
-         },
-         "spec": {
-            "containers": [{
-               "name": "green",
-               "image": "violetwee/green",
-               "ports": [{
-                  "name": "http-server",
-                  "containerPort": 80
-               }]
-            }]
-         }
-      }
-   }
-}
+---
+kind: Deployment
+apiVersion: v1
+metadata:
+  name: green
+  labels:
+    app: green
+spec:
+  replicas: 1
+  selector:
+    app: green
+  template:
+    metadata:
+      labels:
+        app: green
+    spec:
+      containers:
+      - name: green
+        image: iqbalsingh673/udacity_capstone
+        ports:
+        - name: http-server
+          containerPort: 80

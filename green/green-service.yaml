@@ -1,20 +1,15 @@
-{
-   "kind": "Service",
-   "apiVersion": "v1",
-   "metadata": {
-      "name": "bluegreenlb",
-      "labels": {
-         "app": "bluegreenlb"
-      }
-   },
-   "spec": {
-      "ports": [{
-         "port": 8000,
-         "targetPort": 80
-      }],
-      "selector": {
-         "app": "green"
-      },
-      "type": "LoadBalancer"
-   }
-}
+---
+   kind: Service
+   apiVersion: v1
+   metadata:
+     name: udacity_capstone
+     labels:
+       app: udacity_capstone
+   spec:
+     ports:
+     - port: 8000
+       targetPort: 80
+     selector:
+       app: green
+     type: LoadBalancer
+   
