@@ -99,7 +99,7 @@ pipeline {
 							kubectl get nodes
 							kubectl get deployment
 							kubectl get pod -o wide
-							kubectl get service/udacity_capstone
+							kubectl get service
 						'''
 					}
 				}
@@ -121,7 +121,7 @@ pipeline {
 							kubectl get nodes
 							kubectl get deployment
 							kubectl get pod -o wide
-							kubectl get service/udacity_capstone
+							kubectl get service
 						'''
 					}
 				}
