@@ -21,10 +21,10 @@ pipeline {
 				  
 				}
 				
-        			withCredentials([usernamePassword(credentialsId: 'DockerHub', passwordVariable: 'd-pwd', usernameVariable: 'd-username')]) {
+        		withCredentials([usernamePassword(credentialsId: 'DockerHub', passwordVariable: 'password', usernameVariable: 'username')]) {
 					dir("green") {
 						sh '''
-							docker login -u ${d-username} -p ${d-pwd}
+							docker login -u ${username} -p ${password}
 							docker build --tag green .
 						'''
 					}
