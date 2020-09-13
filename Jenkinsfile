@@ -34,19 +34,19 @@ pipeline {
 
 		stage('Push Docker images To Docker Hub') {
 			steps {
-				withCredentials([usernamePassword(credentialsId: 'DockerHub', passwordVariable: 'd-pwd', usernameVariable: 'd-username')]) {
+				withCredentials([usernamePassword(credentialsId: 'DockerHub', passwordVariable: 'password', usernameVariable: 'username')]) {
 					dir("blue") {
 						sh '''
-							docker login -u ${d-username} -p ${d-pwd}
+							docker login -u ${username} -p ${password}
 							docker image tag blue iqbalsingh673/capstone-blue
 							docker image push iqbalsingh673/capstone-blue
 						'''
 					}
 				}
-				withCredentials([usernamePassword(credentialsId: 'DockerHub', passwordVariable: 'd-pwd', usernameVariable: 'd-username')]) {
+				withCredentials([usernamePassword(credentialsId: 'DockerHub', passwordVariable: 'password', usernameVariable: 'username')]) {
 					dir("green") {
 						sh '''
-							docker login -u ${d-username} -p ${d-pwd}
+							docker login -u ${username} -p ${password}
 							docker image tag green iqbalsingh673/capstone-green
 							docker image push iqbalsingh673/capstone-green
 						'''
