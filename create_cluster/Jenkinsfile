@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+    
+    stages{
+
+        stage('Creating Kubernetes Cluster') {
+            steps {
+                withAWS(region:'us-east-2', credentials:'AWS-Credentials') {
+                    sh '''
+                            eksctl create cluster \
+                            --name Udacity-Capstone \
+                            --version 1.17   \
+                            --nodegroup-name nodes-Udacity-Capstone \
+                            --node-type t2.micro \
+                            --nodes 3 \
+                            --nodes-min 1 \
+                            --nodes-max 3 \
+                            --node-ami auto \
+                        '''
+                }
+            }
+        }
+
+        stage('Create cluster configuration') {
+            steps {
+                withAWS(region:'us-east-2', credentials:'AWS-Credentials') {
+                    sh 'aws eks --region us-east-2 update-kubeconfig --name Udacity-Capstone'
+                }
+            }
+        }
+    }
+}
