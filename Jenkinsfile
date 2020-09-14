@@ -117,7 +117,7 @@ pipeline {
 				dir("green") {
 					withAWS(region:'us-east-2', credentials:'AWS-Credentials') {
 						sh '''
-							kubectl apply -f ./green-service.json
+							kubectl apply -f ./green-service.yaml
 							kubectl get nodes
 							kubectl get deployment
 							kubectl get pod -o wide
