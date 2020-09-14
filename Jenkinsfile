@@ -15,7 +15,7 @@ pipeline {
 					dir("blue") {
 						sh '''
 							docker login -u ${username} -p ${password}
-							docker build --tag=blue .
+							docker build --tag=udacity_capstone_blue .
 						'''
 					}
 				  
@@ -25,7 +25,7 @@ pipeline {
 					dir("green") {
 						sh '''
 							docker login -u ${username} -p ${password}
-							docker build --tag green .
+							docker build --tag udacity_capstone_green .
 						'''
 					}
 				}
@@ -38,8 +38,8 @@ pipeline {
 					dir("blue") {
 						sh '''
 							docker login -u ${username} -p ${password}
-							docker image tag blue iqbalsingh673/capstone-blue
-							docker image push iqbalsingh673/capstone-blue
+							docker image tag udacity_capstone_blue iqbalsingh673/udacity_capstone_blue
+							docker image push iqbalsingh673/udacity_capstone_blue
 						'''
 					}
 				}
@@ -47,8 +47,8 @@ pipeline {
 					dir("green") {
 						sh '''
 							docker login -u ${username} -p ${password}
-							docker image tag green iqbalsingh673/capstone-green
-							docker image push iqbalsingh673/capstone-green
+							docker image tag udacity_capstone_green iqbalsingh673/udacity_capstone_green
+							docker image push iqbalsingh673/udacity_capstone_green
 						'''
 					}
 				}
