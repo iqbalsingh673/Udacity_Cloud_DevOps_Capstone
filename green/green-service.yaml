@@ -2,9 +2,9 @@
    kind: Service
    apiVersion: v1
    metadata:
-     name: bluegreenlb
+     name: udacity-capstone
      labels:
-       app: bluegreenlb
+       app: udacity-capstone
    spec:
      ports:
      - port: 8000
