@@ -60,7 +60,7 @@ pipeline {
 				withAWS(region:'us-east-2', credentials:'AWS-Credentials') {
 					sh '''
 						kubectl config current-context
-						kubectl config use-context arn:aws:eks:us-east-2:372255774407:cluster/Udacity-Capstone
+						kubectl config use-context affed7e3b469b4bce8505308f5749542-1450685042.us-east-2.elb.amazonaws.com 
 					'''
 				}
 			}
