@@ -99,7 +99,7 @@ pipeline {
 							kubectl get nodes
 							kubectl get deployment
 							kubectl get pod -o wide
-							kubectl get service/bluegreenlb
+							kubectl get service/udacity-capstone
 						'''
 					}
 				}
@@ -108,7 +108,8 @@ pipeline {
 
 		stage('Redirect traffic confirmation') {
 			steps {
-			    input "Do you want to redirect all traffic to GREEN?"
+			    echo "Version 1 : Blue is running on port 8000."
+				input "To redirect all traffic to GREEN, click Proceed."
 			}
    		}
 
@@ -121,7 +122,7 @@ pipeline {
 							kubectl get nodes
 							kubectl get deployment
 							kubectl get pod -o wide
-							kubectl get service/bluegreenlb
+							kubectl get service/udacity-capstone
 						'''
 					}
 				}
